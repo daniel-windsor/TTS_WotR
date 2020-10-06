@@ -1,0 +1,944 @@
+function loadDecks()
+	locBuilder['Woundwyrm\'s Lair'] = function(params, villain)
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckWeapons.takeObject(params)
+		end
+		deckSpells.takeObject(params)
+		deckArmor.takeObject(params)
+		deckItems.takeObject(params)
+		deckAllies.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Wintersun Hall'] = function(params, villain)
+		for i = 1, 2 do
+			deckMonsters.takeObject(params)
+			deckWeapons.takeObject(params)
+			deckAllies.takeObject(params)
+		end
+		deckSpells.takeObject(params)
+		deckArmor.takeObject(params)
+		deckItems.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Cathedral of Chaos'] = function(params, villain)
+		for i = 1, 2 do
+			deckMonsters.takeObject(params)
+			deckBarriers.takeObject(params)
+		end
+		deckSpells.takeObject(params)
+		deckArmor.takeObject(params)
+		deckItems.takeObject(params)
+		deckAllies.takeObject(params)
+		deckBlessings.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Tower of the Fourth Sphere'] = function(params)
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckAllies.takeObject(params)
+			deckBlessings.takeObject(params)
+		end
+		deckSpells.takeObject(params)
+		deckArmor.takeObject(params)
+	end
+	locBuilder['Eagle Rock'] = function(params, villain)
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckWeapons.takeObject(params)
+		end
+		deckBarriers.takeObject(params)
+		deckItems.takeObject(params)
+		deckAllies.takeObject(params)
+		deckBlessings.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Harvester\'s Pit'] = function(params, villain)
+		for i = 1, 4 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckWeapons.takeObject(params)
+			deckSpells.takeObject(params)
+		end
+		deckItems.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Rapture of Rupture'] = function(params, villain)
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+			deckAllies.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckSpells.takeObject(params)
+		end
+		deckBarriers.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Harem of Ardent Dreams'] = function(params, villain)
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckSpells.takeObject(params)
+		end
+		deckWeapons.takeObject(params)
+		deckSpells.takeObject(params)
+		deckItems.takeObject(params)
+		deckBlessings.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Qlippoth Runestone'] = function(params, villain)
+		for i = 1, 4 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 3 do
+			deckBarriers.takeObject(params)
+		end
+		deckWeapons.takeObject(params)
+		deckItems.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Locust Shrine'] = function(params, villain)
+		for i = 1, 3 do
+			deckBarriers.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckMonsters.takeObject(params)
+		end
+		deckSpells.takeObject(params)
+		deckArmor.takeObject(params)
+		deckAllies.takeObject(params)
+		deckBlessings.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Grinder'] = function(params, villain)
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckBarriers.takeObject(params)
+		end
+		deckWeapons.takeObject(params)
+		deckSpells.takeObject(params)
+		deckItems.takeObject(params)
+		deckBlessings.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Battlebliss 1'] = function(params)
+		for i = 1, 4 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckWeapons.takeObject(params)
+			deckArmor.takeObject(params)
+		end
+		deckSpells.takeObject(params)
+	end
+	locBuilder['Battlebliss 2'] = function(params)
+		for i = 1, 4 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckWeapons.takeObject(params)
+			deckArmor.takeObject(params)
+		end
+		deckSpells.takeObject(params)
+	end
+	locBuilder['Battlebliss 3'] = function(params)
+		for i = 1, 4 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckWeapons.takeObject(params)
+			deckArmor.takeObject(params)
+		end
+		deckSpells.takeObject(params)
+	end
+	locBuilder['Battlebliss 4'] = function(params)
+		for i = 1, 4 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckWeapons.takeObject(params)
+			deckArmor.takeObject(params)
+		end
+		deckSpells.takeObject(params)
+	end
+	locBuilder['Battlebliss 5'] = function(params)
+		for i = 1, 4 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckWeapons.takeObject(params)
+			deckArmor.takeObject(params)
+		end
+		deckSpells.takeObject(params)
+	end
+	locBuilder['Battlebliss 6'] = function(params)
+		for i = 1, 4 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckWeapons.takeObject(params)
+			deckArmor.takeObject(params)
+		end
+		deckSpells.takeObject(params)
+	end
+	locBuilder['Lightless Maze'] = function(params, villain)
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+		end
+		deckBarriers.takeObject(params)
+		deckWeapons.takeObject(params)
+		deckSpells.takeObject(params)
+		deckItems.takeObject(params)
+		deckAllies.takeObject(params)
+		deckBlessings.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Blackburgh'] = function(params, villain)
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckBlessings.takeObject(params)
+		end
+		deckWeapons.takeObject(params)
+		deckSpells.takeObject(params)
+		deckArmor.takeObject(params)
+		deckItems.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Shrine to Baphomet'] = function(params, villain)
+		for i = 1, 4 do
+			deckBlessings.takeObject(params)
+		end
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckSpells.takeObject(params)
+		end
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Prison Vault'] = function(params, villain)
+		for i = 1, 4 do
+			deckBarriers.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckItems.takeObject(params)
+		end
+		deckWeapons.takeObject(params)
+		deckSpells.takeObject(params)
+		deckArmor.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Ivory Labyrinth'] = function(params, villain)
+		for i = 1, 2 do
+			deckMonsters.takeObject(params)
+			deckBarriers.takeObject(params)
+			deckBlessings.takeObject(params)
+		end
+		deckSpells.takeObject(params)
+		deckArmor.takeObject(params)
+		deckAllies.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Heaven'] = function(params, villain)
+		for i = 1, 4 do
+			deckBlessings.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckSpells.takeObject(params)
+		end
+		deckWeapons.takeObject(params)
+		deckArmor.takeObject(params)
+		deckItems.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Threshold'] = function(params, villain)
+		for i = 1, 4 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckBarriers.takeObject(params)
+		end
+		deckSpells.takeObject(params)
+		deckArmor.takeObject(params)
+		deckAllies.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Yearning House'] = function(params, villain)
+		for i = 1, 9 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 3 do
+			deckAllies.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckBarriers.takeObject(params)
+			deckSpells.takeObject(params)
+		end
+		deckWeapons.takeObject(params)
+		deckArmor.takeObject(params)
+		deckItems.takeObject(params)
+		deckBlessings.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Sacristy'] = function(params, villain)
+		for i = 1, 4 do
+			deckItems.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckSpells.takeObject(params)
+		end
+		deckWeapons.takeObject(params)
+		deckArmor.takeObject(params)
+		deckBlessings.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Befouled Altar'] = function(params, villain)
+		for i = 1, 3 do
+			deckBlessings.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckMonsters.takeObject(params)
+			deckSpells.takeObject(params)
+		end
+		deckBarriers.takeObject(params)
+		deckAllies.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Cemetery'] = function(params, villain)
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckWeapons.takeObject(params)
+		end
+		deckBarriers.takeObject(params)
+		deckArmor.takeObject(params)
+		deckItems.takeObject(params)
+		deckBlessings.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Watchtower'] = function(params, villain)
+		for i = 1, 2 do
+			deckMonsters.takeObject(params)
+			deckWeapons.takeObject(params)
+			deckArmor.takeObject(params)
+			deckAllies.takeObject(params)
+		end
+		deckBarriers.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Marketplace'] = function(params, villain)
+		for i = 1, 3 do
+			deckItems.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckWeapons.takeObject(params)
+			deckAllies.takeObject(params)
+		end
+		deckSpells.takeObject(params)
+		deckArmor.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Manor House'] = function(params, villain)
+		for i = 1, 2 do
+			deckWeapons.takeObject(params)
+			deckItems.takeObject(params)
+			deckAllies.takeObject(params)
+		end
+		deckBarriers.takeObject(params)
+		deckSpells.takeObject(params)
+		deckArmor.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Molten Pool'] = function(params, villain)
+		for i = 1, 3 do
+			deckBarriers.takeObject(params)
+		end
+		deckWeapons.takeObject(params)
+		deckArmor.takeObject(params)
+		deckItems.takeObject(params)
+		deckBlessings.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+		params.guid = nil
+
+		if sScenario ~= 'Scenario 2-1' then
+			for i = 1, 2 do
+				deckMonsters.takeObject(params)
+			end
+		else
+			for i = 1, 3 do
+				params.position[2] = params.position[2] + 5
+				deckMonsters.takeObject(params)
+			end
+		end
+	end
+	locBuilder['Abyssal River'] = function(params, villain)
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckBarriers.takeObject(params)
+		end
+		deckSpells.takeObject(params)
+		deckItems.takeObject(params)
+		deckAllies.takeObject(params)
+		deckBlessings.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Abattoir'] = function(params, villain)
+		for i = 1, 3 do
+			deckWeapons.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckBarriers.takeObject(params)
+		end
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+		params.guid = nil
+
+		if sScenario ~= 'Scenario 2-1' then
+			for i = 1, 4 do
+				deckMonsters.takeObject(params)
+			end
+		else
+			for i = 1, 4 do
+				params.position[2] = params.position[2] + 5
+				deckMonsters.takeObject(params)
+			end
+		end
+	end
+	locBuilder['Abyssal Rift'] = function(params, villain)
+		for i = 1, 2 do
+			deckBarriers.takeObject(params)
+			deckSpells.takeObject(params)
+			deckBlessings.takeObject(params)
+		end
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+		params.guid = nil
+
+		if sScenario ~= 'Scenario 2-1' then
+			for i = 1, 3 do
+				deckMonsters.takeObject(params)
+			end
+		else
+			for i = 1, 3 do
+				params.position[2] = params.position[2] + 5
+				deckMonsters.takeObject(params)
+			end
+		end
+	end
+	locBuilder['Maze'] = function(params, villain)
+		for i = 1, 2 do
+			deckBarriers.takeObject(params)
+		end
+		deckMonsters.takeObject(params)
+		deckArmor.takeObject(params)
+		deckItems.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Wounded Lands'] = function(params, villain)
+		for i = 1, 3 do
+			deckBarriers.takeObject(params)
+		end
+		deckWeapons.takeObject(params)
+		deckArmor.takeObject(params)
+		deckItems.takeObject(params)
+		deckAllies.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+		params.guid = nil
+
+		if sScenario ~= 'Scenario 2-1' then
+			for i = 1, 2 do
+				deckMonsters.takeObject(params)
+			end
+		else
+			for i = 1, 2 do
+				params.position[2] = params.position[2] + 5
+				deckMonsters.takeObject(params)
+			end
+		end
+	end
+	locBuilder['Dark Forest'] = function(params, villain)
+		deckBarriers.takeObject(params)
+		deckWeapons.takeObject(params)
+		deckSpells.takeObject(params)
+		deckArmor.takeObject(params)
+		deckItems.takeObject(params)
+		deckAllies.takeObject(params)
+		deckBlessings.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+		params.guid = nil
+
+		if sScenario ~= 'Scenario 2-1' then
+			for i = 1, 2 do
+				deckMonsters.takeObject(params)
+			end
+		else
+
+			for i = 1, 2 do
+				params.position[2] = params.position[2] + 5
+				deckMonsters.takeObject(params)
+			end
+		end
+	end
+	locBuilder['Forsaken Cloister'] = function(params, villain)
+		for i = 1, 2 do
+			deckSpells.takeObject(params)
+			deckBlessings.takeObject(params)
+		end
+		deckMonsters.takeObject(params)
+		deckBarriers.takeObject(params)
+		deckArmor.takeObject(params)
+		deckItems.takeObject(params)
+		deckAllies.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Great Hall'] = function(params, villain)
+		for i = 1, 2 do
+			deckWeapons.takeObject(params)
+			deckItems.takeObject(params)
+		end
+		deckMonsters.takeObject(params)
+		deckBarriers.takeObject(params)
+		deckSpells.takeObject(params)
+		deckArmor.takeObject(params)
+		deckAllies.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Armory'] = function(params, villain)
+		for i = 1, 4 do
+			deckWeapons.takeObject(params)
+			deckArmor.takeObject(params)
+		end
+		deckAllies.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Cavern'] = function(params, villain)
+		for i = 1, 2 do
+			deckBarriers.takeObject(params)
+		end
+		deckWeapons.takeObject(params)
+		deckArmor.takeObject(params)
+		deckItems.takeObject(params)
+		deckAllies.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+		params.guid = nil
+
+		if sScenario ~= 'Scenario 2-1' then
+			for i = 1, 3 do
+				deckMonsters.takeObject(params)
+			end
+		else
+			for i = 1, 3 do
+				params.position[2] = params.position[2] + 5
+				deckMonsters.takeObject(params)
+			end
+		end
+	end
+	locBuilder['Guardpost'] = function(params, villain)
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckWeapons.takeObject(params)
+			deckArmor.takeObject(params)
+			deckAllies.takeObject(params)
+		end
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Sanctum'] = function(params, villain)
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckWeapons.takeObject(params)
+			deckSpells.takeObject(params)
+		end
+		deckBarriers.takeObject(params)
+		deckArmor.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Citadel'] = function(params, villain)
+		for i = 1, 3 do
+			deckArmor.takeObject(params)
+			deckAllies.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckMonsters.takeObject(params)
+		end
+		deckWeapons.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Cell'] = function(params, villain)
+		for i = 1, 3 do
+			deckAllies.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckMonsters.takeObject(params)
+		end
+		deckBarriers.takeObject(params)
+		deckWeapons.takeObject(params)
+		deckArmor.takeObject(params)
+		deckItems.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Family Tomb'] = function(params, villain)
+		for i = 1, 2 do
+			deckMonsters.takeObject(params)
+			deckBlessings.takeObject(params)
+		end
+		deckBarriers.takeObject(params)
+		deckWeapons.takeObject(params)
+		deckSpells.takeObject(params)
+		deckArmor.takeObject(params)
+		deckItems.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Cathedral of St. Clydwell'] = function(params, villain)
+		for i = 1, 4 do
+			deckBlessings.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckSpells.takeObject(params)
+			deckAllies.takeObject(params)
+		end
+
+		deckMonsters.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Canyon'] = function(params, villain)
+		for i = 1, 3 do
+			deckBarriers.takeObject(params)
+		end
+		deckWeapons.takeObject(params)
+		deckArmor.takeObject(params)
+		deckAllies.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+		params.guid = nil
+
+		if sScenario ~= 'Scenario 2-1' then
+			for i = 1, 3 do
+				deckMonsters.takeObject(params)
+			end
+		else
+			for i = 1, 3 do
+				params.position[2] = params.position[2] + 5
+				deckMonsters.takeObject(param)
+			end
+		end
+
+
+	end
+	locBuilder['Middle of Nowhere'] = function(params, villain)
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Laboratory'] = function(params, villain)
+		for i = 1, 2 do
+			deckMonsters.takeObject(params)
+			deckSpells.takeObject(params)
+			deckItems.takeObject(params)
+			deckAllies.takeObject(params)
+		end
+		deckBlessings.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Torture Chamber'] = function(params, villain)
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+			deckBarriers.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckAllies.takeObject(params)
+		end
+		deckArmor.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Mongrel Village'] = function(params, villain)
+		for i = 1, 3 do
+			deckAllies.takeObject(params)
+		end
+		deckMonsters.takeObject(params)
+		deckWeapons.takeObject(params)
+		deckSpells.takeObject(params)
+		deckArmor.takeObject(params)
+		deckItems.takeObject(params)
+		deckBlessings.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Corruption Forge'] = function(params, villain)
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+			deckWeapons.takeObject(params)
+		end
+		deckBarriers.takeObject(params)
+		deckArmor.takeObject(params)
+		deckItems.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Gray Garrison'] = function(params, villain)
+		for i = 1, 4 do
+			deckMonsters.takeObject(params)
+		end
+		deckBarriers.takeObject(params)
+		deckWeapons.takeObject(params)
+		deckSpells.takeObject(params)
+		deckArmor.takeObject(params)
+		deckBlessings.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Tower of Estrod'] = function(params, villain)
+		for i = 1, 3 do
+			deckSpells.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckMonsters.takeObject(params)
+			deckItems.takeObject(params)
+		end
+		deckAllies.takeObject(params)
+		deckBlessings.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Collapsing Bridge'] = function(params, villain)
+		for i = 1, 5 do
+			deckAllies.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckMonsters.takeObject(params)
+			deckBarriers.takeObject(params)
+		end
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Occult Library'] = function(params, villain)
+		for i = 1, 2 do
+			deckMonsters.takeObject(params)
+			deckSpells.takeObject(params)
+			deckItems.takeObject(params)
+		end
+		deckBarriers.takeObject(params)
+		deckWeapons.takeObject(params)
+		deckAllies.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Wardstone Chamber'] = function(params, villain)
+		for i = 1, 5 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckBarriers.takeObject(params)
+			deckBlessings.takeObject(params)
+		end
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Soul Foundry'] = function(params, villain)
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckBarriers.takeObject(params)
+		end
+		deckWeapons.takeObject(params)
+		deckSpells.takeObject(params)
+		deckArmor.takeObject(params)
+		deckItems.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Celestial Beacon'] = function(params, villain)
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckSpells.takeObject(params)
+			deckBlessings.takeObject(params)
+		end
+		deckItems.takeObject(params)
+		deckAllies.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Chasm of Shadows'] = function(params, villain)
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+			deckBarriers.takeObject(params)
+		end
+		deckWeapons.takeObject(params)
+		deckItems.takeObject(params)
+		deckBlessings.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+
+		--Draws location specific '
+	end
+	locBuilder['Gate of the Worldwound'] = function(params, villain)
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+			deckBarriers.takeObject(params)
+		end
+		deckWeapons.takeObject(params)
+		deckSpells.takeObject(params)
+		deckArmor.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Defender\'s Heart'] = function(params, villain)
+		for i = 1, 4 do
+			deckMonsters.takeObject(params)
+		end
+		for i = 1, 3 do
+			deckAllies.takeObject(params)
+		end
+		deckWeapons.takeObject(params)
+		deckArmor.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Paradise Hill'] = function(params, villain)
+		for i = 1, 3 do
+			deckMonsters.takeObject(params)
+			deckItems.takeObject(params)
+		end
+		deckSpells.takeObject(params)
+		deckItems.takeObject(params)
+		deckBlessings.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['Temple of Iomedae'] = function(params, villain)
+		for i = 1, 3 do
+			deckBlessings.takeObject(params)
+		end
+		for i = 1, 2 do
+			deckSpells.takeObject(params)
+			deckAllies.takeObject(params)
+		end
+		deckWeapons.takeObject(params)
+		deckArmor.takeObject(params)
+
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+	locBuilder['The Rasping Rifts'] = function(params, villain)
+		params.guid = villain
+		bagHenchmenAndVillains.takeObject(params)
+	end
+end

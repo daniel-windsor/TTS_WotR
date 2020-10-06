@@ -1,0 +1,109 @@
+function loadObjects()
+	local allObj = getAllObjects()
+
+	for i, Container in pairs(allObj) do
+		if Container.tag == 'Bag' then
+			local sBag = Container.getName()
+			if sBag == 'Locations' or sBag == 'Henchmen And Villains' or sBag == 'Loot' or sBag == 'Cohorts' then
+				str = sBag:gsub("%s+", "")
+				_G['bag'..str] = getObjectFromGUID(Container.guid)
+				local Items = Container.getObjects()
+				for i = 1, #Items do
+					_G[str][Items[i].name] = Items[i].guid
+				end
+			elseif sBag == 'Scenario Loot' then
+				str = sBag:gsub("%s+", "")
+				_G['bag'..str] = getObjectFromGUID(Container.guid)
+			end
+		elseif Container.tag == 'Deck' then
+			local sDeck = Container.getName()
+			if sDeck == 'Allies' or sDeck == 'Armor' or sDeck == 'Blessings' or sDeck == 'Items' or
+			sDeck == 'Spells' or sDeck == 'Weapons' or sDeck == 'Barriers' or sDeck == 'Monsters' then
+				_G['deck'..sDeck] = getObjectFromGUID(Container.guid)
+			end
+		end
+	end
+end
+
+--Deal blessing deck
+function createBlessingDeck(num)
+
+	for i = 1, num do
+		deckBlessings.takeObject(scenarioBlessingDeck)
+	end
+end
+
+--Shuffle HenchmenAndVillains[ array
+function shuffleVillains(scVillains)
+	local scVillainsShuff = {}
+
+	math.randomseed(os.time())
+
+	iCount = #scVillains
+	for i = 0, iCount do
+		m = math.random(1, iCount - i)
+		scVillainsShuff[i + 1] = scVillains[m]
+		if scVillains[m] ~= nil then
+			table.remove(scVillains, m)
+		end
+	end
+	return scVillainsShuff
+end
+
+--Deal each location deck
+function dealCards(scLocations, scVillainsShuff)
+  if deckNum > 8 then deckNum = 8; end
+
+  for i = 1, deckNum do
+    coordLocationCard[i].guid = Locations[scLocations[i]]
+    bagLocations.takeObject(coordLocationCard[i])
+
+    if scVillainsShuff ~= nil then
+      villain = HenchmenAndVillains[scVillainsShuff[i]]
+    end
+
+    locBuilder[scLocations[i]](coordLocationDeck[i], villain)
+
+    coordLocationDeck[i].guid = nil
+  end
+end
+
+--Deal loot
+function dealLoot(scLoot)
+	local lootObj = bagLoot.getObjects()
+	local vPos = bagScenarioLoot.getPosition()
+	local lootName = {}
+
+	for i = 1, #lootObj do
+		lootName[i] = lootObj[i].name
+	end
+
+	for i = 1, #scLoot do
+		for ii = 1, #lootName do
+			if lootName[ii] == scLoot[i] then
+				vPos.guid = Loot[scLoot[i]]
+				vPos.position = {vPos.x, vPos.y + 1 + i * 0.5, vPos.z}
+				bagLoot.takeObject(vPos)
+			end
+		end
+	end
+end
+
+--Deal cohorts
+function dealCohorts(scCohorts)
+	local cohortObj = bagCohorts.getObjects()
+	local cohortName = {}
+
+	for i = 1, #cohortObj do
+		cohortName[i] = cohortObj[i].name
+	end
+
+	for i = 1, #scCohorts do
+		for ii = 1, #cohortName do
+			if cohortName[ii] == scCohorts[i] then
+				coordCohorts[i].guid = Cohorts[scCohorts[i]]
+				bagCohorts.takeObject(coordCohorts[i])
+			end
+		end
+	end
+end

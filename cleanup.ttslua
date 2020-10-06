@@ -1,0 +1,120 @@
+--Gathers all objects into array
+function returnCards(params)
+	local allObj = getAllObjects()
+	if params[1] == 'board' then
+		boardObj = zoneBoard.getObjects()
+		clearLoot = 1
+		sScenario = ''
+	elseif params[1] == 'discard' then
+		boardObj = zoneDiscard.getObjects()
+		clearLoot = 0
+	end
+	local Stacks = {}
+
+	--Finds main decks
+	for i, Container in pairs(allObj) do
+		local iCount = Container.getQuantity()
+		if iCount >= 1 and Container.tag == 'Deck' then
+			local vPos = Container.getPosition()
+			local sDeck = Container.getName()
+			if sDeck == 'Allies' or sDeck == 'Armor' or sDeck == 'Blessings' or sDeck == 'Items' or
+			sDeck == 'Spells' or sDeck == 'Weapons' or sDeck == 'Barriers' or sDeck == 'Monsters' then
+				local Items = Container.getObjects()
+				local Item = Items[#Items - 1]
+				local sName = Item.nickname
+				Stacks[sName] = {iNum = iCount, Stack = Container}
+			end
+		end
+	end
+
+	--Returns single cards
+	for i, Item in pairs(boardObj) do
+		if Item.tag ~= 'Card' and Item.tag ~= 'Deck' then
+			boardObj[i] = nil
+		elseif Item.held_by_color ~= nul then
+			boardObj[i] = nil
+		elseif Item.getDescription() == 'Location' then
+			local vPos = bagLocations.getPosition()
+			vPos.y = vPos.y + 1 + (i * 0.5)
+			Item.setRotation{0, 0, 0}
+			Item.setPosition(vPos)
+			boardObj[i] = nil
+		elseif Item.getDescription() == "Henchman" or Item.getDescription() == "Villain" then
+			local vPos = bagHenchmenAndVillains.getPosition()
+			vPos.y = vPos.y + 1 + (i * 0.5)
+			Item.setRotation{180, 0, 0}
+			Item.setPosition(vPos)
+		elseif Item.getDescription() == "Loot" then
+			local vPos = bagLoot.getPosition()
+			vPos.y = vPos.y + 1 + (i * 0.5)
+			Item.setRotation{0, 0, 0}
+			Item.setPosition(vPos)
+		elseif Item.getDescription() == 'Cohort' then
+			local vPos = bagCohorts.getPosition()
+			vPos.y = vPos.y + 1 + (i * 0.5)
+			Item.setRotation{0, 0, 0}
+			Item.setPosition(vPos)
+		else local stackDef = Stacks[Item.getName()]
+			if stackDef ~= nil then
+				local vPos = stackDef.Stack.getPosition()
+				vPos.y = vPos.y + (i * 0.1)
+				Item.setRotation(stackDef.Stack.getRotation())
+				Item.setPosition(vPos)
+				boardObj[i] = nil
+			end
+		end
+	end
+
+	--Returns stacks
+	for i, Container in pairs(boardObj) do
+		if Container.tag == 'Deck' and Container.getQuantity() > 0 then
+			local Items = Container.getObjects()
+			local iCount = 0
+			for k, Item in pairs(Items) do
+				local stackDef = Stacks[Item.nickname]
+				if stackDef == nil then
+					Items[k] = nil
+				else
+					Items[k].Stack = stackDef.Stack
+					iCount = iCount + 1
+				end
+			end
+			local sortedItems = {}
+			for k, Item in pairs(Items) do
+				sortedItems[iCount] = Item
+				iCount = iCount - 1
+			end
+			for i = 1, #sortedItems do
+				local Item = sortedItems[i]
+				local vPos = {}
+				local vRot = {}
+				vPos = Item.Stack.getPosition()
+				vRot = Item.Stack.getRotation()
+
+				local params = {}
+				params.index = Item.index
+				params.position = {x = 0, y = i + 1, z = vPos.z} --to avoid cards cluttering together on their way to the stack, just spread them out in space and put them on the stack in the callback
+				params.rotation = vRot
+				params.callback = 'setCardPosition'
+				params.params = {vPos = {x = vPos.x, y = vPos.y + 0.5, z = vPos.z}}
+				params.callback_owner = Global
+				Container.takeObject(params)
+			end
+		end
+	end
+
+	--Returns from Loot Chest
+	if clearLoot == 1 then
+		local lootTemp = bagScenarioLoot.getObjects()
+		for i = 1, #lootTemp do
+			local vPos = bagLoot.getPosition()
+			vPos.position = {vPos.x, vPos.y + 1 + (i * 0.5), vPos.z}
+			bagScenarioLoot.takeObject(vPos)
+		end
+	end
+end
+
+--Callback function to finalise card return
+function setCardPosition(Card, params)
+	Card.setPosition(params.vPos)
+end

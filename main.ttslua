@@ -1,0 +1,52 @@
+#include constants
+#include scenarios
+#include locations
+#include setup
+#include cleanup
+#include util
+
+Locations = {}
+HenchmenAndVillains = {}
+Cohorts = {}
+Loot = {}
+
+locBuilder = {} --Scenario location builder
+scBuilder = {} --Scenario builder
+
+coordLocationCard = {locationA, locationB, locationC, locationD, locationE, locationF, locationG, locationH} --Coordinates for location cards
+coordLocationDeck = {locationDeckA, locationDeckB, locationDeckC, locationDeckD, locationDeckE, locationDeckF, locationDeckG, locationDeckH} -- Coordinates for location deck
+coordCohorts = {cohortA, cohortB, cohortC, cohortD, cohortE, cohortF, cohortG, cohortH} --Coordinates for cohort cards
+
+scLocations = {}
+scVilliansShuff = {}
+
+function onLoad()
+	print('Welcome to WotR scripted!  Select a scenario from the Blue Adventure bags and press \'Create Game\' to begin')
+
+	zoneScenario = getObjectFromGUID(zoneScenario_GUID)
+	zoneBoard = getObjectFromGUID(zoneBoard_GUID)
+	zoneDiscard = getObjectFromGUID(zoneDiscard_GUID)
+
+	--Makes table objects non-interactable
+	for i = 1, #objectTable, 1 do
+		obj = getObjectFromGUID(objectTable[i])
+		if obj ~= nil then
+			obj.interactable = false
+		end
+	end
+
+	loadObjects()
+	loadDecks()
+	loadScenarios()
+end
+
+function createGame(params)
+
+	if sScenario ~= '' then
+		playerNum = params[1]
+		deckNum = params[2]
+
+		createBlessingDeck(30)
+		scBuilder[sScenario]()
+	end
+end

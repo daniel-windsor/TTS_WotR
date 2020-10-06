@@ -1,0 +1,158 @@
+--Defaults
+playerNum = 1
+deckNum = 3
+sScenario = ''
+flipCount = 0
+marker = 0
+
+henchmenScenario5Up = {'Herald\'s Heart', 'Inger-Maggor', 'Svendack', 'Devastator', 'Diurgez Broodlord', 'Favored of Deskari', 'Flayed Man', 'Gimcrack', 'Lord Stillborn', 'Ravener Terendelev', 'Sister Perversion',
+	'Labyrinth Minotaur 1', 'Labyrinth Minotaur 2', 'Labyrinth Minotaur 3', 'Labyrinth Minotaur 4', 'Labyrinth Minotaur 5', 'Labyrinth Minotaur 6', 'Labyrinth Minotaur 7',
+	'Rite of Heraldry 1', 'Rite of Heraldry 2', 'Rite of Heraldry 3', 'Rite of Heraldry 4', 'Rite of Heraldry 5', 'Rite of Heraldry 6', 'Rite of Heraldry 7',
+	'Stringy Fiend 1', 'Stringy Fiend 2', 'Stringy Fiend 3', 'Stringy Fiend 4', 'Stringy Fiend 5', 'Stringy Fiend 6', 'Stringy Fiend 7',
+	'Abyssal Army 1', 'Abyssal Army 2', 'Abyssal Army 3', 'Abyssal Army 4', 'Abyssal Army 5', 'Abyssal Army 6', 'Abyssal Army 7',
+	'Pleaser 1', 'Pleaser 2', 'Pleaser 3', 'Pleaser 4', 'Pleaser 5', 'Pleaser 6', 'Pleaser 7',
+'Rasper Dragon Riders 1', 'Rasper Dragon Riders 2', 'Rasper Dragon Riders 3', 'Rasper Dragon Riders 4', 'Rasper Dragon Riders 5', 'Rasper Dragon Riders 6', 'Rasper Dragon Riders 7'}
+
+--Zone GUID
+zoneScenario_GUID = 'a55eec'
+zoneBoard_GUID = '50404c'
+zoneDiscard_GUID = '99676f'
+
+--Deck Coordinates
+locationA = {}
+locationA.position = { - 9.070001, 1.80214942, - 5.11000061, }
+locationA.rotation = { 6.971861E-06, 180.000046, 0}
+locationA.flip = false
+
+locationDeckA = {}
+locationDeckA.position = { - 11.37, 1.80214918, - 5.11}
+locationDeckA.rotation = {6.787884E-06, 180.000046, 180}
+locationDeckA.flip = false
+
+locationB = {}
+locationB.position = { - 2.25, 1.80214942, - 5.11}
+locationB.rotation = { - 2.25, 180.214942, 0}
+locationB.flip = false
+
+locationDeckB = {}
+locationDeckB.position = { - 4.55000973, 1.80214953, - 5.11}
+locationDeckB.rotation = { 1.74640036E-06, 180.030212, 180}
+locationDeckB.flip = false
+
+locationC = {}
+locationC.position = { 4.61000633, 1.80214918, - 5.09499168}
+locationC.rotation = {7.85288648E-06, 180.000046, 0}
+locationC.flip = false
+
+locationDeckC = {}
+locationDeckC.position = {2.31000257, 1.802149, - 5.09501266, }
+locationDeckC.rotation = {6.46584249E-06, 179.991959, 180}
+locationDeckC.flip = false
+
+locationD = {}
+locationD.position = {11.4399862, 1.8021493, - 5.094996}
+locationD.rotation = {9.648028E-06, 180.000031, 0}
+locationD.flip = false
+
+locationDeckD = {}
+locationDeckD.position = {9.148186, 1.80214942, - 5.094997, }
+locationDeckD.rotation = {3.690714E-06, 180.000015, 180}
+locationDeckD.flip = false
+
+locationE = {}
+locationE.position = { - 7.79252625, 1.80214989, 0.209756821}
+locationE.rotation = { - 1.25473807E-05, 270.0064, 0}
+locationE.flip = false
+
+locationDeckE = {}
+locationDeckE.position = { - 7.7849493, 1.80215, 2.5099647}
+locationDeckE.rotation = { - 3.61814455E-06, 270.001221, 180}
+locationDeckE.flip = false
+
+locationF = {}
+locationF.position = {7.88500547, 1.80215025, 2.419966}
+locationF.rotation = { - 1.30253229E-05, 90.0135345, 0}
+locationF.flip = false
+
+locationDeckF = {}
+locationDeckF.position = {7.88500547, 1.80215025, 0.114962481}
+locationDeckF.rotation = { - 1.30253229E-05, 90.0135345, 180}
+locationDeckF.flip = false
+
+locationG = {}
+locationG.position = { - 7.784999, 1.80215073, 6.555034, }
+locationG.rotation = { - 2.56130784E-06, 270.003174, 0}
+locationG.flip = false
+
+locationDeckG = {}
+locationDeckG.position = { - 7.784998, 1.80215108, 8.860029}
+locationDeckG.rotation = { - 7.582883E-06, 270.0032, 180}
+locationDeckG.flip = false
+
+locationH = {}
+locationH.position = {7.88501, 1.802151, 8.899935}
+locationH.rotation = {4.519441E-06, 90.01358, 0}
+locationH.flip = false
+
+locationDeckH = {}
+locationDeckH.position = {7.88500547, 1.80215037, 6.599967}
+locationDeckH.rotation = { - 5.883988E-06, 90.01355, 180}
+locationDeckH.flip = false
+
+altDeckA = {}
+altDeckA.position = { - 0.0350000821, 1.80214989, - 0.1499999}
+altDeckA.rotation = {180, 270, 0}
+altDeckA.flip = false
+
+scenarioBlessingDeck = {}
+scenarioBlessingDeck.position = {1.38499987, 1.80215025, 3.46500015, }
+scenarioBlessingDeck.rotation = {0, 180, 180}
+scenarioBlessingDeck.flip = false
+
+cohortA = {}
+cohortA.position = { - 12.2699995, 1.03171349, - 15.4000006}
+cohortA.rotation = {1.886043E-07, 180.003784, 0}
+cohortA.flip = false
+
+cohortB = {}
+cohortB.position = { - 8.75, 1.03171349, - 15.4000006, 9.817E-08}
+cohortB.rotation = {0, 180, 0}
+
+cohortC = {}
+cohortC.position = { - 5.23, 1.03171349, - 15.4000006}
+cohortC.rotation = { - 1.075081E-06, 180.015091, 0}
+cohortC.flip = false
+
+cohortD = {}
+cohortD.position = { - 1.71, 1.03171349, - 15.4000006}
+cohortD.rotation = { - 9.36161E-09, 180.0178, 0}
+cohortD.flip = false
+
+cohortE = {}
+cohortE.position = {1.81, 1.03171337, - 15.4000006}
+cohortE.rotation = { - 4.46442357E-07, 180.013565, 0}
+cohortE.flip = false
+
+cohortF = {}
+cohortF.position = {5.33, 1.03171349, - 15.4000006}
+cohortF.rotation = {3.85924949E-07, 179.998566, 0}
+cohortF.flip = false
+
+cohortG = {}
+cohortG.position = {8.85, 1.03171349, - 15.4000006}
+cohortG.rotation = {8.00347451E-08, 180.031891, 0}
+cohortG.flip = false
+
+cohortH = {}
+cohortH.position = {12.37, 1.0317136, - 15.4000006}
+cohortH.rotation = { - 5.8963974E-07, 180.019348, 0}
+cohortH.flip = false
+
+servitor = {}
+servitor.position = {12.37, 1.03171349, - 15.4000006}
+servitor.rotation = {2.54136125E-07, 180.000015, 1.67672408E-06}
+servitor.flip = false
+
+--Table GUID
+objectTable = {'e2a04d', '327fe1', 'acae48', '6a31a8', '61e302', '08fc55', 'f26211', 'dea3f7', --board and table trays
+								'797063'} --control panel

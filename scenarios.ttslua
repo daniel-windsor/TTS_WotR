@@ -1,0 +1,832 @@
+function loadScenarios()
+	scBuilder['Scenario B1'] = function ()
+		local scLocations = {'Forsaken Cloister', 'Manor House', 'Marketplace', 'Armory',
+		'Watchtower', 'Laboratory', 'Citadel', 'Sanctum'}
+
+		--Create Villain/Henchmen table
+		local scVillains = {'Sophini', 'Blackfire Adept 1', 'Ceustodaemon'}
+		for i = 4, deckNum do
+			scVillains[i] = 'Cultist of Baphomet ' .. i - 3
+		end
+
+		--Shuffles Villain/Henchmen table
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		--Deals cards
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		--Deals Servitor Demon
+		servitor.guid = HenchmenAndVillains['Demonling']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario B2'] = function ()
+		local scLocations = {'Dark Forest', 'Watchtower', 'Wounded Lands', 'Cemetery',
+		'Abyssal River', 'Guardpost', 'Cavern', 'Molten Pool'}
+
+		local scCohorts = {'Cecilla The Uprooter'}
+
+		local scVillains = {'Fihralaz', 'Vescavor Swarm 1'}
+		for i = 3, deckNum do
+			scVillains[i] = 'Tangle Trap ' .. i - 2
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		--Deals scenario Cohorts
+		dealCohorts(scCohorts)
+
+		servitor.guid = HenchmenAndVillains['Demonling']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario B3'] = function ()
+		local scLocations = {'Befouled Altar', 'Family Tomb', 'Guardpost', 'Wounded Lands',
+		'Cavern', 'Armory', 'Cathedral of St. Clydwell', 'Canyon'}
+
+		local scCohorts = {'Sir Ilivan'}
+
+		local scVillains = {'Savash'}
+		for i = 2, deckNum do
+			scVillains[i] = 'Brimorak ' .. i - 1
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		dealCohorts(scCohorts)
+
+		servitor.guid = HenchmenAndVillains['Demonling']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario B4'] = function ()
+		local scLocations = {'Cemetery', 'Laboratory', 'Manor House', 'Torture Chamber',
+		'Cell', 'Great Hall', 'Sacristy', 'Abattoir'}
+
+		local scVillains = {'Karsos', 'Ghalcor', 'Unfettered Eidolon 1'}
+		for i = 4, deckNum do
+			scVillains[i] = 'Wight ' .. i - 3
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		servitor.guid = HenchmenAndVillains['Demonling']
+		bagHenchmenAndVillains.takeObject(servitor)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+	end
+
+	scBuilder['Scenario B5'] = function ()
+		local scLocations = {'Abattoir', 'Sanctum', 'Abyssal Rift', 'Torture Chamber',
+		'Abyssal River', 'Molten Pool', 'Wounded Lands'}
+
+		local scCohorts = {'Sir Ilivan', 'Vinst', 'Cecilla The Uprooter'}
+
+		local scVillains = {'Thurl and Inhaz'}
+		for i = 2, deckNum - 1 do
+			scVillains[i] = 'Unfettered Eidolon ' .. i - 1
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 1)
+
+		dealCohorts(scCohorts)
+
+		servitor.guid = HenchmenAndVillains['Demonling']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 1-1'] = function ()
+		local scLocations = {'Cathedral of St. Clydwell', 'Citadel', 'Occult Library', 'Collapsing Bridge',
+		'Defender\'s Heart', 'Gray Garrison', 'Armory', 'Marketplace'}
+
+		local scLoot = {'Scale of Cloudwalking', 'Scale of Disguise', 'Scale of Resistance', 'Scale of Sacred Weaponry'}
+
+		local scVillains = {}
+		for i = 1, deckNum do
+			scVillains[i] = 'Ulkreth ' .. i
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		--Add ' to blessing deck
+		scenarioBlessingDeck.guid = HenchmenAndVillains['Khorramzadeh']
+		bagHenchmenAndVillains.takeObject(scenarioBlessingDeck)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		servitor.guid = HenchmenAndVillains['Sloth Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+
+		--Adds ' to Chest
+		dealLoot(scLoot)
+	end
+
+	scBuilder['Scenario 1-2'] = function ()
+		local scLocations = {'Cavern', 'Collapsing Bridge', 'Mongrel Village', 'Canyon',
+		'Great Hall', 'Guardpost', 'Befouled Altar', 'Marketplace'}
+
+		local scCohorts = {'Anevia Tirabade', 'Aravashnial', 'Horgus Gwerm'}
+
+		local scLoot = {'Scale of Cloudwalking', 'Scale of Disguise', 'Scale of Resistance', 'Scale of Sacred Weaponry'}
+
+		local scVillains = {'Millorn'}
+		for i = 2, deckNum do
+			scVillains[i] = 'Giant Bat ' .. i - 1
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		dealCohorts(scCohorts)
+
+		dealLoot(scLoot)
+
+		servitor.guid = HenchmenAndVillains['Sloth Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+
+	end
+
+	scBuilder['Scenario 1-3'] = function ()
+		local scLocations = {'Armory', 'Sacristy', 'Mongrel Village', 'Cavern',
+		'Abattoir', 'Cell', 'Watchtower', 'Torture Chamber'}
+
+		local scCohorts = {'Anevia Tirabade', 'Aravashnial', 'Horgus Gwerm'}
+
+		local scLoot = {'Scale of Cloudwalking', 'Scale of Disguise', 'Scale of Resistance', 'Scale of Sacred Weaponry',
+		'Radiance'}
+
+		local scVillains = {'Hosilla', 'Wenduag', 'Uziel'}
+		for i = 4, deckNum do
+			scVillains[i] = 'Mongrel Traitor ' .. i - 3
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		dealCohorts(scCohorts)
+
+		dealLoot(scLoot)
+
+		servitor.guid = HenchmenAndVillains['Sloth Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 1-4'] = function ()
+		local scLocations = {'Defender\'s Heart', 'Laboratory', 'Tower of Estrod', 'Occult Library',
+		'Cemetery', 'Manor House', 'Temple of Iomedae', 'Forsaken Cloister'}
+
+		local scCohorts = {'Anevia Tirabade', 'Aravashnial', 'Horgus Gwerm', 'Irabeth Tirabade'}
+
+		local scLoot = {'Scale of Cloudwalking', 'Scale of Disguise', 'Scale of Resistance', 'Scale of Sacred Weaponry'}
+
+		local scVillains = {'Faxon', 'Vagorg'}
+		for i = 3, deckNum do
+			scVillains[i] = 'Cultist of Baphomet ' .. i - 2
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		dealCohorts(scCohorts)
+
+		dealLoot(scLoot)
+
+		servitor.guid = HenchmenAndVillains['Sloth Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 1-5'] = function ()
+		local scLocations = {'Gray Garrison', 'Temple of Iomedae', 'Wardstone Chamber', 'Forsaken Cloister',
+		'Great Hall', 'Citadel', 'Occult Library', 'Cathedral of St. Clydwell'}
+
+		local scLoot = {'Wardstone Fragment'}
+
+		local scVillains = {'Jeslyn', 'Othirubo'}
+		for i = 3, deckNum do
+			scVillains[i] = 'Cultist of Baphomet ' .. i - 2
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		servitor.guid = HenchmenAndVillains['Sloth Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		dealLoot(scLoot)
+	end
+
+	scBuilder['Scenario 2-1'] = function ()
+		local scLocations = {'Abyssal Rift', 'Dark Forest', 'Molten Pool', 'Canyon',
+		'Wounded Lands', 'Cavern', 'Sacristy', 'Abattoir'}
+
+		local scCohorts = {'Aron Kir', 'Queen Galfrey', 'Sosiel Vaenic'}
+
+		local scVillains = {'Vescavor Queen'}
+		for i = 2, deckNum do
+			scVillains[i] = 'Vescavor Swarm ' .. i - 1
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		dealCohorts(scCohorts)
+
+		servitor.guid = HenchmenAndVillains['Blood Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 2-2'] = function ()
+		local scLocations = {'Abyssal River', 'Sacristy', 'Wounded Lands', 'Forsaken Cloister',
+		'Dark Forest', 'Befouled Altar', 'Abyssal Rift', 'Watchtower'}
+
+		local scLoot = {'Barding of Pleated Light'}
+
+		local scVillains = {'Nulkineth', 'Ilzek and Jadiss'}
+		for i = 3, deckNum do
+			scVillains[i] = 'Undead Company ' .. i - 2
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		dealLoot(scLoot)
+
+		servitor.guid = HenchmenAndVillains['Blood Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 2-3'] = function ()
+		scLocations = {'Paradise Hill', 'Celestial Beacon', 'Armory', 'Watchtower',
+		'Guardpost', 'Cemetery'}
+
+		local scVillains = {}
+		for i = 1, deckNum - 2 do
+			scVillains[i] = 'Worldwound Cadre ' .. i
+		end
+
+		scVillainsShuff = shuffleVillains(scVillains)
+
+		dealSingleLocation(1, scLocations[1], scVillainsShuff[1])
+
+		servitor.guid = HenchmenAndVillains['Blood Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 2-4'] = function ()
+		local scLocations = {'Armory', 'Citadel', 'Great Hall', 'Watchtower',
+		'Guardpost', 'Abattoir', 'Laboratory', 'Forsaken Cloister'}
+
+		local scCohorts = {'Aron Kir', 'Irabeth Tirabade', 'Nurah Dendiwhar'}
+
+		local scLoot = {'Soulshear'}
+
+		local scVillains = {'Staunton Vhane', 'Jestak', 'Joram Vhane'}
+		for i = 4, deckNum do
+			scVillains[i] = 'Fiendish Minotaur ' .. i - 3
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		dealCohorts(scCohorts)
+
+		dealLoot(scLoot)
+
+		servitor.guid = HenchmenAndVillains['Blood Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 2-5'] = function ()
+		local scLocations = {'Cell', 'Chasm of Shadows', 'Corruption Forge', 'Torture Chamber',
+		'Abattoir', 'Family Tomb', 'Molten Pool', 'Forsaken Cloister'}
+
+		local scCohorts = {'Aron Kir', 'Nurah Dendiwhar', 'Sosiel Vaenic'}
+
+		local scLoot = {'Ring of Forcefangs', 'Banner of Valor'}
+
+		local scVillains = {'Eustoyriax', 'Chorussina', 'Theruk Nul'}
+		for i = 4, deckNum do
+			scVillains[i] = 'Cultist of Deskari ' .. i - 3
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		dealCohorts(scCohorts)
+
+		dealLoot(scLoot)
+
+		servitor.guid = HenchmenAndVillains['Blood Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 3-1'] = function ()
+		local scLocations = {'Cell', 'Family Tomb', 'Forsaken Cloister', 'Wounded Lands',
+		'Cemetery', 'Abyssal River', 'Dark Forest', 'Befouled Altar'}
+
+		local scCohorts = {'Aron Kir', 'Horgus Gwerm'}
+
+		local scVillains = {'Skulgrym', 'Alrys Harnaste'}
+		for i = 3, deckNum do
+			scVillains[i] = 'Wight ' .. i - 2
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		dealCohorts(scCohorts)
+
+		servitor.guid = HenchmenAndVillains['Shadow Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 3-2'] = function ()
+		local scLocations = {'Cell', 'Guardpost', 'Citadel', 'Befouled Altar',
+		'Collapsing Bridge', 'Dark Forest', 'Molten Pool'}
+
+		local scCohorts = {'Irabeth Tirabade', 'Sosiel Vaenic'}
+
+		local scLoot = {'Spherewalker Staff', 'Starbow', 'Swallowtail Bracers'}
+
+		local scVillains = {'Jaruunicka'}
+		for i = 2, deckNum - 1 do
+			scVillains[i] = 'Derakni ' .. i - 1
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 1)
+
+		dealCohorts(scCohorts)
+
+		dealLoot(scLoot)
+
+		servitor.guid = HenchmenAndVillains['Shadow Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+
+		--Adds bonus henchman to top of each deck
+		for i = 1, deckNum - 1 do
+			coordLocationDeck[i].position[2] = coordLocationDeck[i].position[2]+15
+			coordLocationDeck[i].guid = HenchmenAndVillains['Grimslake ' .. i]
+			bagHenchmenAndVillains.takeObject(coordLocationDeck[i])
+		end
+	end
+
+	scBuilder['Scenario 3-3'] = function ()
+		local scLocations = {'Abyssal Rift', 'Befouled Altar', 'Canyon', 'Abyssal River',
+		'Abattoir', 'Cavern', 'Armory', 'Guardpost'}
+
+		local scCohorts = {'Aravashnial', 'Anevia Tirabade'}
+
+		local scVillains = {'Zanedra and Svennarobeth'}
+		for i = 2, deckNum do
+			scVillains[i] = 'Ivory Templar ' .. i - 1
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		dealCohorts(scCohorts)
+
+		servitor.guid = HenchmenAndVillains['Shadow Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 3-4'] = function ()
+		local scLocations = {'Eagle Rock', 'Wintersun Hall', 'Woundwyrm\'s Lair', 'Marketplace',
+		'Armory', 'Guardpost', 'Mongrel Village', 'Canyon'}
+
+		local scCohorts = {'Cecilla The Uprooter', 'Vinst'}
+
+		local scVillains = {'Marhevok Wintersun'}
+		for i = 2, deckNum do
+			scVillains[i] = 'Barbarian Horde ' .. i - 1
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		dealCohorts(scCohorts)
+
+		servitor.guid = HenchmenAndVillains['Shadow Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 3-5'] = function ()
+		local scLocations = {'Cathedral of Chaos', 'Cell', 'Sanctum', 'Laboratory',
+		'Eagle Rock', 'Cavern', 'Great Hall', 'Sacristy'}
+
+		local scLoot = {'Black Robe', 'Fiendsplitter'}
+
+		local scVillains = {'Xanthir Vang'}
+		for i = 2, deckNum do
+			scVillains[i] = 'Ivory Templar ' .. i - 1
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		servitor.guid = HenchmenAndVillains['Shadow Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+
+		dealLoot(scLoot)
+	end
+
+	scBuilder['Scenario 4-1'] = function ()
+		local scLocations = {'Befouled Altar', 'Grinder', 'Guardpost', 'Laboratory',
+		'Molten Pool', 'Abyssal River', 'Cavern', 'Locust Shrine'}
+
+		local scCohorts = {'Anevia Tirabade', 'Aron Kir', 'Aravashnial', 'Irabeth Tirabade', 'Sir Ilivan', 'Sosiel Vaenic'}
+
+		local scLoot = {'Talisman of True Faith'}
+
+		local scVillains = {'Heart of the Fane', 'Mutasafen', 'Ursathella'}
+		for i = 4, deckNum do
+			scVillains[i] = 'Ash Giant Thug ' .. i - 3
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		dealCohorts(scCohorts)
+
+		dealLoot(scLoot)
+
+		servitor.guid = HenchmenAndVillains['Vulture Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 4-2'] = function ()
+		local scLocations = {'Battlebliss 1', 'Battlebliss 2', 'Battlebliss 3', 'Battlebliss 4',
+		'Battlebliss 5', 'Battlebliss 6'}
+
+		local scCohorts = {'Yaniel'}
+
+		local scVillains = {'Gelderfang'}
+		for i = 2, playerNum do
+			scVillains[i] = 0
+		end
+
+		dealCards(scLocations, nil, 2)
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		for i = 1, playerNum do
+			if scVillainsShuff[i] == 0 then
+				coordLocationDeck[i].guid = nil
+				deckMonsters.takeObject(coordLocationDeck[i])
+			elseif scVillainsShuff[i] == 'Gelderfang' then
+				coordLocationDeck[i].guid = HenchmenAndVillains['Gelderfang']
+				bagHenchmenAndVillains.takeObject(coordLocationDeck[i])
+			end
+		end
+
+		dealCohorts(scCohorts)
+
+		servitor.guid = HenchmenAndVillains['Vulture Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 4-3'] = function ()
+		local scLocations = {'Harem of Ardent Dreams', 'Locust Shrine', 'Rapture of Rupture', 'Marketplace',
+		'Abattoir', 'Armory', 'Forsaken Cloister', 'Cell'}
+
+		local scCohorts = {'Yaniel'}
+
+		local scLoot = {'Firebow', 'Transmogrify', 'Blessing of Nocticula 1', 'Blessing of Nocticula 2', 'Blessing of Nocticula 3', 'Blessing of Nocticula 4',
+		'Blessing of Nocticula 5', 'Blessing of Nocticula 6'}
+
+		local scVillains = {'Vellexia', 'Nezirrius'}
+		for i = 3, deckNum do
+			scVillains[i] = 'Brimorak ' .. i - 2
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		dealCohorts(scCohorts)
+
+		dealLoot(scLoot)
+
+		servitor.guid = HenchmenAndVillains['Vulture Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+
+	end
+
+	scBuilder['Scenario 4-4'] = function ()
+		local scLocations = {'Abyssal River', 'Cavern', 'Qlippoth Runestone', 'Collapsing Bridge',
+		'Molten Pool', 'Dark Forest', 'Wounded Lands', 'Canyon'}
+
+		local scVillains = {'The Defiled One'}
+		for i = 2, deckNum do
+			scVillains[i] = 'Demoniac of Baphomet ' .. i - 1
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		coordLocationDeck[1].guid = HenchmenAndVillains['Kestoglyr Mantiel']
+		bagHenchmenAndVillains.takeObject(coordLocationDeck[1])
+
+		servitor.guid = HenchmenAndVillains['Vulture Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 4-5'] = function ()
+		local scLocations = {'Abattoir', 'Forsaken Cloister', 'Harvester\'s Pit', 'Locust Shrine',
+		'Torture Chamber', 'Cell', 'Cavern', 'Molten Pool'}
+
+		local scCohorts = {'The Fulsome Queen'}
+
+		local scLoot = {'Blancher', 'Fasciculus Labyrinthum'}
+
+		local scVillains = {'Hepzamirah', 'Kralisq', 'Melazmera'}
+		for i = 4, deckNum do
+			scVillains[i] = 'Fiendish Minotaur ' .. i - 3
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		dealCohorts(scCohorts)
+
+		dealLoot(scLoot)
+
+		servitor.guid = HenchmenAndVillains['Vulture Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 5-1'] = function ()
+		local scLocations = {'Cathedral of St. Clydwell', 'Citadel', 'Great Hall', 'Heaven',
+		'Sacristy', 'Temple of Iomedae'}
+
+		local scLoot = {'Chalice of Ozem', 'Stole of the Inheritor'}
+
+		local scVillains = {}
+		for i = 1, 6 do
+			scVillains[i] = 'Rite of Heraldry ' .. i
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		for i = 1, 6 do
+			coordLocationCard[i].guid = Locations[scLocations[i]]
+			bagLocations.takeObject(coordLocationCard[i])
+
+			locBuilder[scLocations[i]](coordLocationDeck[i], HenchmenAndVillains[scVillainsShuff[i]])
+		end
+
+		scenarioBlessingDeck.guid = HenchmenAndVillains['Lady of Valor']
+		bagHenchmenAndVillains.takeObject(scenarioBlessingDeck)
+
+		servitor.guid = HenchmenAndVillains['Treachery Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+
+		dealLoot(scLoot)
+	end
+
+	scBuilder['Scenario 5-2'] = function ()
+		local scLocations = {'Blackburgh', 'Ivory Labyrinth', 'Lightless Maze', 'Middle of Nowhere',
+		'Forsaken Cloister', 'Great Hall', 'Occult Library', 'Citadel'}
+
+		local scLoot = {'Ball of Twine'}
+
+		local scVillains = {'Odeenka'}
+		for i = 2, deckNum do
+			scVillains[i] = 'Cultist of Baphomet ' .. i - 1
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		servitor.guid = HenchmenAndVillains['Treachery Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+
+		dealLoot(scLoot)
+	end
+
+	scBuilder['Scenario 5-3'] = function ()
+		local scLocations = {'Blackburgh', 'Ivory Labyrinth', 'Lightless Maze', 'Cavern',
+		'Molten Pool', 'Abyssal River', 'Torture Chamber', 'Abattoir'}
+
+		local scVillains = {'The Father of Worms', 'Inger-Maggor'}
+		for i = 3, deckNum do
+			scVillains[i] = 'Labyrinth Minotaur ' .. i - 2
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		servitor.guid = HenchmenAndVillains['Treachery Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 5-4'] = function ()
+		local scLocations = {'Cell', 'Occult Library', 'Prison Vault', 'Laboratory',
+		'Collapsing Bridge', 'Torture Chamber', 'Guardpost', 'Shrine to Baphomet'}
+
+		local scLoot = {'Dawnflower\'s Kiss'}
+
+		local scVillains = {'Ylleshka', 'Svendack'}
+		for i = 3, deckNum do
+			scVillains[i] = 'Stringy Fiend ' .. i - 2
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		servitor.guid = HenchmenAndVillains['Treachery Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+
+		dealLoot(scLoot)
+	end
+
+	scBuilder['Scenario 5-5'] = function ()
+		local scLocations = {'Prison Vault', 'Sanctum', 'Shrine to Baphomet', 'Torture Chamber',
+		'Abattoir', 'Great Hall', 'Cell', 'Befouled Altar'}
+
+		local scLoot = {'Amulet of the Abyss'}
+
+		local scVillains = {'Corrupted Herald', 'HeraldsHeart'}
+		for i = 3, deckNum do
+			scVillains[i] = 'Labyrinth Minotaur ' .. i - 2
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		dealLoot(scLoot)
+
+		servitor.guid = HenchmenAndVillains['Treachery Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 6-1'] = function ()
+		local scLocations = {'Citadel', 'Defender\'s Heart', 'Marketplace', 'Cathedral of St. Clydwell',
+		'Armory', 'Temple of Iomedae', 'Occult Library'}
+
+		local scCohorts = {'Anevia Tirabade', 'Aron Kir', 'Aravashnial', 'Horgus Gwerm',
+		'Irabeth Tirabade', 'Sosiel Vaenic'}
+
+		local scVillainsShuff = {}
+		for i = 1, deckNum do
+			scVillainsShuff[i] = 'Abyssal Army ' .. i
+		end
+
+		dealCards(scLocations, scVillainsShuff, 1)
+
+		dealCohorts(scCohorts)
+
+		servitor.guid = HenchmenAndVillains['Ophidian Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 6-2'] = function ()
+		local scLocations = {'Yearning House', 'Manor House', 'Cavern', 'Occult Library',
+		'Gray Garrison', 'Cemetery'}
+
+		local scCohorts = {'Lexicon of Paradox'}
+
+		local scVillains = {}
+		if playerNum == 1 then
+			scVillains = {'Mistress Anemora'}
+		else
+			scVillains = {'Mistress Anemora', 'Sister Perversion'}
+		end
+
+		for i = 3, deckNum - 2 do
+			scVillains[i] = 'Pleaser ' .. i - 2
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 2)
+
+		dealCohorts(scCohorts)
+
+		servitor.guid = HenchmenAndVillains['Ophidian Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 6-3'] = function ()
+		local scLocations = {'Abattoir', 'Cell', 'Soul Foundry', 'Great Hall',
+		'Molten Pool', 'Laboratory', 'Sanctum', 'Torture Chamber'}
+
+		local scCohorts = {'Lexicon of Paradox', 'Nahyndrian Chisel'}
+
+		local scVillains = {'The Suture', 'Flayed Man', 'Lord Stillborn'}
+		for i = 4, deckNum do
+			scVillains[i] = 'Abyssal Army ' .. i - 3
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		dealCohorts(scCohorts)
+
+		servitor.guid = HenchmenAndVillains['Ophidian Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 6-4'] = function ()
+		local scLocations = {'Abyssal Rift', 'Threshold', 'Wounded Lands', 'Collapsing Bridge',
+		'Abyssal River', 'Watchtower', 'Canyon', 'Dark Forest'}
+
+		local scCohorts = {'Lexicon of Paradox', 'Nahyndrian Chisel', 'The Suture'}
+
+		local scVillains = {'Khorramzadeh Reborn', 'Diurgez Broodlord'}
+		for i = 3, deckNum do
+			scVillains[i] = 'Rasper Dragon Riders ' .. i - 2
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		dealCohorts(scCohorts)
+
+		servitor.guid = HenchmenAndVillains['Ophidian Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 6-5'] = function ()
+		local scLocations = {'Gate of the Worldwound', 'Gray Garrison', 'Forsaken Cloister', 'Occult Library',
+		'Great Hall', 'Sanctum', 'Torture Chamber', 'Cavern'}
+
+		local scCohorts = {'Lexicon of Paradox', 'Nahyndrian Chisel', 'The Suture'}
+
+		local scLoot = {'Deskari\'s Tooth', 'Mournful Razor', 'Robe of the Rifts'}
+
+		local scVillains = {'Areelu Vorlesh', 'Favored of Deskari', 'Gimcrack'}
+		for i = 4, deckNum do
+			scVillains[i] = 'Blackfire Adept ' .. i - 3
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		dealCards(scLocations, scVillainsShuff, 0)
+
+		dealCohorts(scCohorts)
+
+		dealLoot(scLoot)
+
+		servitor.guid = HenchmenAndVillains['Ophidian Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+
+	scBuilder['Scenario 6-6'] = function ()
+		local scLocations = {'The Rasping Rifts'}
+
+		local scCohorts = {'Anevia Tirabade', 'Aron Kir', 'Aravashnial', 'Horgus Gwerm',
+		'Irabeth Tirabade', 'Sosiel Vaenic'}
+
+
+
+		deckNum = 1
+		dealCards(scLocations, {'Deskari'}, 0)
+
+		local scVillains = {}
+		for i = 1, #henchmenScenario5Up do
+			scVillains[i] = henchmenScenario5Up[i]
+		end
+
+		local scVillainsShuff = shuffleVillains(scVillains)
+
+		for i = 1, playerNum * 6 do
+			coordLocationDeck[2].guid = HenchmenAndVillains[scVillainsShuff[i]]
+			bagHenchmenAndVillains.takeObject(coordLocationDeck[2])
+		end
+
+		dealCohorts(scCohorts)
+
+		servitor.guid = HenchmenAndVillains['Ophidian Demon']
+		bagHenchmenAndVillains.takeObject(servitor)
+	end
+end

@@ -1,0 +1,90 @@
+function shuffleAll()
+	local AllObj = getAllObjects()
+
+	for i, Container in pairs(AllObj) do
+		local iCount = Container.getQuantity()
+		if iCount >= 1 and Container.tag == 'Deck' then
+			tempDeck = getObjectFromGUID(Container.guid)
+			tempDeck.shuffle()
+		end
+	end
+end
+
+function onObjectLeaveScriptingZone(zone, leave_object)
+  if zone == zoneBoard and leave_object.getName() == 'Areelu Vorlesh' and marker == 0 then
+		coordLocationDeck[1].position[2] = coordLocationDeck[1].position[2] + 5
+		coordLocationDeck[1].guid = HenchmenAndVillains['Heart of the Worldwound']
+		bagHenchmenAndVillains.takeObject(coordLocationDeck[1])
+
+		marker = marker + 1
+  end
+end
+
+function updateFlipCount()
+	flipCount = flipCount + 1
+
+	--Deals decks as the previous location is closed
+	if sScenario == 'Scenario 2-3' and flipCount < playerNum then
+		if flipCount == 1 then
+			dealSingleLocation(2, scLocations[2], scVillainsShuff[2])
+		elseif flipCount == 2 then
+			dealSingleLocation(3, scLocations[3], scVillainsShuff[3])
+		elseif flipCount == 3 then
+			dealSingleLocation(4, scLocations[4], scVillainsShuff[4])
+		elseif flipCount == 4 then
+			dealSingleLocation(5, scLocations[5], scVillainsShuff[5])
+		elseif flipCount == 5 then
+			dealSingleLocation(6, scLocations[6], scVillainsShuff[6])
+		end
+	elseif sScenario == 'Scenario 2-3' and flipCount == playerNum then
+		coordLocationCard[8].guid = Locations['Citadel']
+		bagLocations.takeObject(coordLocationCard[8])
+
+		coordLocationDeck[8].guid = HenchmenAndVillains['Soltengrebbe']
+		bagHenchmenAndVillains.takeObject(coordLocationDeck[8])
+
+		for i = 1, playerNum do
+			coordLocationDeck[8].guid = HenchmenAndVillains['Brimorak ' .. i]
+			bagHenchmenAndVillains.takeObject(coordLocationDeck[8])
+		end
+	end
+
+	if sScenario == 'Scenario 3-2' and flipCount == 2 then
+		--Deals scenario bonus location
+		dealSingleLocation(8, 'Tower of the Fourth Sphere', nil)
+
+		coordLocationDeck[8].position[2] = coordLocationDeck[8].position[2]+15
+		coordLocationDeck[8].guid = HenchmenAndVillains['Grimslake ' .. 8]
+		bagHenchmenAndVillains.takeObject(coordLocationDeck[8])
+	end
+
+	if sScenario == 'Scenario 3-5' and flipCount == 1 then
+		for i = 1, #scCohorts do
+			dealCohorts(scCohorts[i], i)
+		end
+	end
+
+	if sScenario == 'Scenario 4-4' and flipCount == 1 then
+		scCohorts = {'The Fulsome Queen'}
+		dealCohorts(scCohorts)
+	end
+
+	if sScenario == 'Scenario 6-1' and flipCount == 1 then
+		dealSingleLocation(8, 'Sanctum', 'Aponavicius')
+	end
+end
+
+function dealSingleLocation(num, location, villain)
+	coordLocationCard[num].guid = Locations[location]
+	bagLocations.takeObject(coordLocationCard[num])
+
+	locBuilder[location](coordLocationDeck[num], HenchmenAndVillains[villain])
+end
+
+function onObjectEnterScriptingZone(zone, object)
+	if zone == zoneScenario then
+		sScenario = object.getName()
+	elseif zone == zoneDiscard then
+
+	end
+end
